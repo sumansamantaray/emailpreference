@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+package com.capitalone.microservice.pie.emailpreference.processor;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.capitalone.microservice.pie.emailpreference.database.model.EmailPreferenceObject;
+import com.capitalone.microservice.pie.emailpreference.util.EmailPreferenceUtil;
+
+/**
+ * @author SUSHREE
+ *
+ */
+@Component
+public class EmailPreferenceProcessor {
+	
+	@Autowired
+	EmailPreferenceUtil emailPrefUtil;
+
+	public void processEmailPreference() {
+		
+		List<EmailPreferenceObject> emailPrefObjList = emailPrefUtil.readEmailPreferenceFile();
+		for (EmailPreferenceObject emailPrefObj : emailPrefObjList) {
+			System.out.println("Account number: "+emailPrefObj.getAccountNumber());
+			if ("D".equals(emailPrefObj.getStatus())) {
+				
+			}
+		}
+	}
+}
