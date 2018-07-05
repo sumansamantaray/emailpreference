@@ -1,0 +1,1 @@
+insert into email_preferences (account_number, email_address, domesticInb, domesticOut, internationalInb, internationalOut, bookInb, bookOut, email_format, status) values ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")

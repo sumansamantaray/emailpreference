@@ -6,7 +6,7 @@ package com.capitalone.microservice.pie.emailpreference.config;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author SUSHREE
+ * @author Suman
  *
  */
 @Configuration

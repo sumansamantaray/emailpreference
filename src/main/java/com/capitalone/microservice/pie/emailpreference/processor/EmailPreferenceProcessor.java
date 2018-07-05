@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.capitalone.microservice.pie.emailpreference.database.EmailPreferenceDao;
 import com.capitalone.microservice.pie.emailpreference.database.model.EmailPreferenceObject;
 import com.capitalone.microservice.pie.emailpreference.util.EmailPreferenceUtil;
 
@@ -20,6 +21,9 @@ public class EmailPreferenceProcessor {
 	
 	@Autowired
 	EmailPreferenceUtil emailPrefUtil;
+	
+	@Autowired
+	EmailPreferenceDao emailPreferenceImpl;
 
 	public void processEmailPreference() {
 		
@@ -27,7 +31,13 @@ public class EmailPreferenceProcessor {
 		for (EmailPreferenceObject emailPrefObj : emailPrefObjList) {
 			System.out.println("Account number: "+emailPrefObj.getAccountNumber());
 			if ("D".equals(emailPrefObj.getStatus())) {
-				
+				// Delete email preference will be called.....
+			}
+			else if ("A".equals(emailPrefObj.getStatus())) {
+				emailPreferenceImpl.insertEmailPreference(emailPrefObj);
+			}
+			else {
+				// Update Email preference will be called....
 			}
 		}
 	}

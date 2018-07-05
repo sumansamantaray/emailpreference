@@ -3,33 +3,58 @@
  */
 package com.capitalone.microservice.pie.emailpreference.database.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+
 /**
- * @author SUSHREE
+ * @author Suman
  *
  */
-public class EmailPreferenceObject {
+@Entity
+@Component
+public class EmailPreferenceObject implements Serializable{
 
 	// 1234567890|suman.samantaray@email.com|N|N|N|N|N|N|HTML
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int emailPreferenceId;
 	
+	@Column (name = "account_number")
 	private String accountNumber;
 	
+	@Column (name = "email_address")
 	private String emailAddress;
 	
+	@Column (name = "domesticInb")
 	private String domesticInb;
 	
+	@Column (name = "domesticOut")
 	private String domesticOut;
 	
+	@Column (name = "internationalInb")
 	private String internationalInb;
 	
+	@Column (name = "internationalOut")
 	private String internationalOut;
 	
+	@Column (name = "bookInb")
 	private String bookInd;
 	
+	@Column (name = "bookOut")
 	private String bookOut;
 	
+	@Column (name = "email_format")
 	private String emailFormat;
 	
+	@Column (name = "status")
 	private String status;
 
 	/**
