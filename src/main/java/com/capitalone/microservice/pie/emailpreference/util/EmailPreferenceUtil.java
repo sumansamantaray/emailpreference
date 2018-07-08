@@ -118,7 +118,7 @@ public class EmailPreferenceUtil {
 	        				
 	                }
 	                
-	                System.out.print(cellValue + cell.getColumnIndex()+ "\t");
+	                System.out.print(cellValue + "\t");
 	            });
 	            System.out.println();
 	            emailPreferenceList.add(emailPrefObj);

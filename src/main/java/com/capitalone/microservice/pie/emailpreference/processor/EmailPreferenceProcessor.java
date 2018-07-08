@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.capitalone.microservice.pie.emailpreference.database.EmailPreferenceDao;
-import com.capitalone.microservice.pie.emailpreference.database.model.EmailPreferenceObject;
+import com.capitalone.microservice.pie.emailpreference.database.model.EmailPreferences;
 import com.capitalone.microservice.pie.emailpreference.util.EmailPreferenceUtil;
 
 /**
@@ -27,8 +27,8 @@ public class EmailPreferenceProcessor {
 
 	public void processEmailPreference() {
 		
-		List<EmailPreferenceObject> emailPrefObjList = emailPrefUtil.readEmailPreferenceFile();
-		for (EmailPreferenceObject emailPrefObj : emailPrefObjList) {
+		List<EmailPreferences> emailPrefObjList = emailPrefUtil.readFromXlsxFile();
+		for (EmailPreferences emailPrefObj : emailPrefObjList) {
 			System.out.println("Account number: "+emailPrefObj.getAccountNumber());
 			if ("D".equals(emailPrefObj.getStatus())) {
 				// Delete email preference will be called.....

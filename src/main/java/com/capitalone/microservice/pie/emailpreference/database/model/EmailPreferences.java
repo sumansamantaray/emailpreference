@@ -19,12 +19,13 @@ import org.springframework.stereotype.Component;
  */
 @Entity
 @Component
-public class EmailPreferenceObject implements Serializable{
+public class EmailPreferences implements Serializable{
 
 	// 1234567890|suman.samantaray@email.com|N|N|N|N|N|N|HTML
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Column (name = "email_preference_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int emailPreferenceId;
 	
 	@Column (name = "account_number")
@@ -33,22 +34,22 @@ public class EmailPreferenceObject implements Serializable{
 	@Column (name = "email_address")
 	private String emailAddress;
 	
-	@Column (name = "domesticInb")
+	@Column (name = "domestic_Inb")
 	private String domesticInb;
 	
-	@Column (name = "domesticOut")
+	@Column (name = "domestic_Out")
 	private String domesticOut;
 	
-	@Column (name = "internationalInb")
+	@Column (name = "international_Inb")
 	private String internationalInb;
 	
-	@Column (name = "internationalOut")
+	@Column (name = "international_Out")
 	private String internationalOut;
 	
-	@Column (name = "bookInb")
+	@Column (name = "book_Inb")
 	private String bookInd;
 	
-	@Column (name = "bookOut")
+	@Column (name = "book_Out")
 	private String bookOut;
 	
 	@Column (name = "email_format")
@@ -56,6 +57,21 @@ public class EmailPreferenceObject implements Serializable{
 	
 	@Column (name = "status")
 	private String status;
+	
+	
+	/**
+	 * @return the emailPreferenceId
+	 */
+	public int getEmailPreferenceId() {
+		return emailPreferenceId;
+	}
+
+	/**
+	 * @param emailPreferenceId the emailPreferenceId to set
+	 */
+	public void setEmailPreferenceId(int emailPreferenceId) {
+		this.emailPreferenceId = emailPreferenceId;
+	}
 
 	/**
 	 * @return the accountNumber

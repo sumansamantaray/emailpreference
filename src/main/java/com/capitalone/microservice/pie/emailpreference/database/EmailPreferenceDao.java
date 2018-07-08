@@ -5,7 +5,7 @@ package com.capitalone.microservice.pie.emailpreference.database;
 
 import org.springframework.stereotype.Component;
 
-import com.capitalone.microservice.pie.emailpreference.database.model.EmailPreferenceObject;
+import com.capitalone.microservice.pie.emailpreference.database.model.EmailPreferences;
 
 /**
  * @author SUSHREE
@@ -14,9 +14,9 @@ import com.capitalone.microservice.pie.emailpreference.database.model.EmailPrefe
 @Component
 public interface EmailPreferenceDao {
 
-	public int insertEmailPreference(EmailPreferenceObject emailPrefObj);
+	public int insertEmailPreference(EmailPreferences emailPrefObj);
 	
-	public int updateEmailPreference(EmailPreferenceObject emailPrefObj);
+	public int updateEmailPreference(EmailPreferences emailPrefObj);
 	
-	public int deleteEmailPreference(EmailPreferenceObject emailPrefObj);
+	public int deleteEmailPreference(EmailPreferences emailPrefObj);
 }
