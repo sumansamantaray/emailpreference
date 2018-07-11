@@ -6,6 +6,7 @@ package com.capitalone.microservice.pie.emailpreference.processor;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.capitalone.microservice.pie.emailpreference.database.EmailPreferenceDao;
@@ -23,7 +24,8 @@ public class EmailPreferenceProcessor {
 	EmailPreferenceUtil emailPrefUtil;
 	
 	@Autowired
-	EmailPreferenceDao emailPreferenceImpl;
+	@Qualifier ("hibernateImpl")
+	EmailPreferenceDao emailPrefHibernateDaoImpl;
 
 	public void processEmailPreference() {
 		
@@ -32,11 +34,13 @@ public class EmailPreferenceProcessor {
 			System.out.println("Account number: "+emailPrefObj.getAccountNumber());
 			if ("D".equals(emailPrefObj.getStatus())) {
 				// Delete email preference will be called.....
+				emailPrefHibernateDaoImpl.deleteEmailPreference(emailPrefObj);
 			}
 			else if ("A".equals(emailPrefObj.getStatus())) {
-				emailPreferenceImpl.insertEmailPreference(emailPrefObj);
+				emailPrefHibernateDaoImpl.insertEmailPreference(emailPrefObj);
 			}
 			else {
+				emailPrefHibernateDaoImpl.updateEmailPreference(emailPrefObj);
 				// Update Email preference will be called....
 			}
 		}

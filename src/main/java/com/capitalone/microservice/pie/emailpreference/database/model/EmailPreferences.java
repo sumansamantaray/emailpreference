@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
@@ -18,13 +19,14 @@ import org.springframework.stereotype.Component;
  *
  */
 @Entity
+@Table (name = "EMAIL_PREFERENCES")
 @Component
 public class EmailPreferences implements Serializable{
 
 	// 1234567890|suman.samantaray@email.com|N|N|N|N|N|N|HTML
 	
 	@Id
-//	@Column (name = "email_preference_id")
+	@Column (name = "email_preference_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int emailPreferenceId;
 	
@@ -55,8 +57,7 @@ public class EmailPreferences implements Serializable{
 	@Column (name = "email_format")
 	private String emailFormat;
 	
-	@Column (name = "status")
-	private String status;
+	transient private String status;
 	
 	
 	/**

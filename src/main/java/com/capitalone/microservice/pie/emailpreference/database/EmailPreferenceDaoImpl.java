@@ -23,10 +23,10 @@ public class EmailPreferenceDaoImpl implements EmailPreferenceDao {
 	@Override
 	@Bean
 	public int insertEmailPreference(EmailPreferences emailPrefObj) {
-		piecofJdbcTemplate.update("insert into email_preferences (account_number, email_address, domestic_Inb, domestic_Out, international_Inb, international_Out, book_Inb, book_Out, email_format, status) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+		/*piecofJdbcTemplate.update("insert into email_preferences (account_number, email_address, domestic_Inb, domestic_Out, international_Inb, international_Out, book_Inb, book_Out, email_format, status) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
 				new Object[] {emailPrefObj.getAccountNumber(), emailPrefObj.getEmailAddress(), emailPrefObj.getDomesticInb(),
 						emailPrefObj.getDomesticOut(), emailPrefObj.getInternationalInb(), emailPrefObj.getInternationalOut(),
-						emailPrefObj.getBookInd(), emailPrefObj.getBookOut(), emailPrefObj.getEmailFormat(), emailPrefObj.getStatus()});
+						emailPrefObj.getBookInd(), emailPrefObj.getBookOut(), emailPrefObj.getEmailFormat(), emailPrefObj.getStatus()});*/
 		return 0;
 	}
 

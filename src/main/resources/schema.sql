@@ -9,6 +9,5 @@ CREATE TABLE email_preferences
     international_Out varchar(1),
     book_Inb varchar(1),
     book_Out varchar(1),
-    email_format varchar(10),
-    status varchar(1)
+    email_format varchar(10)
 );

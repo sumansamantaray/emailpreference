@@ -1,1 +1,1 @@
-insert into email_preferences (account_number, email_address, domestic_Inb, domestic_Out, international_Inb, international_Out, book_Inb, book_Out, email_format, status) values ('1', '2', '3', '4', '5', '6', '7', '8', '9', 'A')
+insert into email_preferences (account_number, email_address, domestic_Inb, domestic_Out, international_Inb, international_Out, book_Inb, book_Out, email_format) values ('1', '2', '3', '4', '5', '6', '7', '8', '9')
