@@ -5,6 +5,7 @@ package com.capitalone.microservice.pie.emailpreference.config;
 
 import javax.sql.DataSource;
 
+import org.hibernate.Session;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -37,18 +38,28 @@ public class EmailPreferenceDataSourceConfig {
     }*/
 	
 	@Bean
-	public LocalSessionFactoryBean sessionFactory() {
+	public LocalSessionFactoryBean sessionFactory () {
 		
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		sessionFactory.setDataSource(this.piecofDataSource());
-		sessionFactory.setPackagesToScan("com.capitalone.microservice.pie.emailpreference");
-		return sessionFactory;
+        sessionFactory.setDataSource(this.piecofDataSource());
+        sessionFactory.setPackagesToScan("com.capitalone.microservice.pie.emailpreference");
+        return sessionFactory;
 	}
 	
 	@Bean
-	public HibernateTransactionManager transactionManager() {
-		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-		transactionManager.setSessionFactory(this.sessionFactory().getObject());
-		return transactionManager;
-	}
+    public HibernateTransactionManager transactionManager() {
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactory().getObject());
+        return transactionManager;
+    }
+	
+	/*@Bean
+	public Session getSession() {
+		Session session = sessionFactory().getObject().getCurrentSession();
+		if (session != null) {
+			return session;
+		}
+		session = sessionFactory().getObject().openSession();
+        return session;
+    }*/
 }
